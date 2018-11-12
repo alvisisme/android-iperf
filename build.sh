@@ -8,7 +8,7 @@ cp /home/out/Application.mk jni/
 cd jni && ndk-build && cd ..
 
 if [ -f "libs/arm64-v8a/iperf" ];then
-    cp libs/arm64-v8a/iperf /home/out/bin/iperf
+    sudo cp libs/arm64-v8a/iperf /home/out/bin/iperf
 else
     exit 1
 fi
