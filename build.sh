@@ -6,7 +6,14 @@ cp patch/* jni/src/
 cp Android.mk jni/
 cp Application.mk jni/
 cd jni && ndk-build && cd ..
-cp libs/arm64-v8a/iperf bin/iperf
+
+if [ -f "libs/arm64-v8a/iperf" ]
+    cp libs/arm64-v8a/iperf bin/iperf
+else
+    exit(1)
+fi
+
+
 
 # clean
 rm -rf iperf-3.1.3-source.tar.gz
