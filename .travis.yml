@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t android-iperf-build .
+  - docker run --rm -v `pwd`:/home/out android-iperf-build

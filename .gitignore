@@ -1,0 +1,5 @@
+jni/
+libs/
+obj/
+*.tar.gz
+out/
