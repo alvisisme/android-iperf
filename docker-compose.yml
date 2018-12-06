@@ -1,0 +1,16 @@
+version: '2'
+services:
+  android-build-iperf2:
+    build:
+      context: ./v2
+      dockerfile: ./Dockerfile
+    image: android-build-iperf:v2
+    volumes:
+      - ./v2:/out
+  android-build-iperf3:
+    build:
+      context: ./v3
+      dockerfile: ./Dockerfile
+    image: android-build-iperf:v3
+    volumes:
+      - ./v3:/out

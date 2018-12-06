@@ -1,5 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+LOCAL_MODULE := iperf
 LOCAL_SRC_FILES := \
     src/cjson.c \
     src/iperf_api.c \
@@ -19,5 +20,4 @@ LOCAL_SRC_FILES := \
 	src/main.c
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/src
-LOCAL_MODULE := iperf
 include $(BUILD_EXECUTABLE)

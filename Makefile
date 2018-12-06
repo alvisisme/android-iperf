@@ -1,7 +1,15 @@
-all: env build
+all: iperf2 iperf3
 
-env:
-	docker build -t android-iperf-build .
+iperf2:
+	docker-compose build android-build-iperf2
+	docker-compose run android-build-iperf2
 
-build:
-	docker run --rm -v `pwd`:/home/out android-iperf-build
+iperf3:
+	docker-compose build android-build-iperf3
+	docker-compose run android-build-iperf3
+
+dist: iperf2 iperf3
+	cp v2/libs/arm64-v8a/iperf bin/iperf2
+	cp v3/libs/arm64-v8a/iperf bin/iperf3
+
+.PHONY: iperf2 iperf3 dist
