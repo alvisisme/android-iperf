@@ -16,9 +16,6 @@ before_install:
   - docker-compose --version
   - docker --version
 script:
-  - echo $USER
-  - echo $CI
-  - echo $TRAVIS
   - make
 branches:
   only:

@@ -1,7 +1,6 @@
 #!/bin/bash
 IPERF_VERSION="2.0.4"
 IPERF_FILE=iperf-$IPERF_VERSION-source.tar.gz
-echo $USER
 if [ ! -f "$IPERF_FILE" ]; then
     wget https://iperf.fr/download/source/$IPERF_FILE
 fi
