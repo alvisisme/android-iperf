@@ -1,24 +1,66 @@
-# android-iperf
+# iperf-for-android
 
-[![Build Status](https://travis-ci.org/alvisisme/android-iperf.svg?branch=master)](https://travis-ci.org/alvisisme/android-iperf)
+[![Build Status](https://img.shields.io/travis/com/alvisisme/android-iperf?style=flat-square)](https://travis-ci.com/alvisisme/android-iperf)
 
-编译 iperf 为 Android 系统 arm64-v8a 架构可执行文件
+编译iperf至android平台arm64-v8a架构。
 
-## 依赖工具
+本工程主要编译可执行文件。
 
-* docker-compose version 1.23.1, build b02f1306
-* Docker version 18.06.1-ce, build e68fc7a
+## 目录
 
-## 测试环境
+- [背景](#背景)
+- [安装](#安装)
+- [用法](#用法)
+- [维护人员](#维护人员)
+- [贡献参与](#贡献参与)
+- [许可](#许可)
 
-* ubuntu16.04
+## 背景
+
+编译环境
+
+* Ubuntu 18.04.4 LTS amd64
 * android-ndk-r13b
-* iperf-3.1.3
 * iperf-2.0.4
+* iperf-3.1.3
 
-## 编译步骤
+## 安装
 
-执行命令
-```shell
-make
+将**dist**目录下对应文件导入安卓手机。
+
+```bash
+adb push dist/iperf2 /data/local/tmp
+adb shell chmod 755 /data/local/tmp/iperf2
 ```
+
+## 用法
+
+推荐使用 docker 和 docker-compose 进行编译
+
+编译 iperf v2
+
+```bash
+cd v2
+docker-compose up --build
+```
+
+编译 iperf v3
+
+```bash
+cd v3
+docker-compose up --build
+```
+
+编译后文件位于对应版本目录的 **build/libs** 目录下。
+
+## 维护人员
+
+[@Alvis Zhao](https://github.com/alvisisme)
+
+## 贡献参与
+
+欢迎提交PR。
+
+## 许可
+
+© 2020 Alvis Zhao

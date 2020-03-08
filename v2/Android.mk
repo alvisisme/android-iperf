@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_MODULE := iperf
+LOCAL_MODULE := iperf2
 LOCAL_SRC_FILES := \
 	src/SocketAddr.c \
 	src/service.c \

@@ -1,0 +1,7 @@
+version: '2'
+services:
+  iperf2-for-android:
+    build: .
+    image: iperf2-for-android
+    volumes:
+      - ./build:/build

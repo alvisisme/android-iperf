@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_MODULE := iperf
+LOCAL_MODULE := iperf3
 LOCAL_SRC_FILES := \
     src/cjson.c \
     src/iperf_api.c \

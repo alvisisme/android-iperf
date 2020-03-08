@@ -1,7 +1,9 @@
-FROM alvisisme/docker-android-ndk:r13b
-LABEL maintainer="alvis<alvisisme@163.com>"
+# See https://github.com/alvisisme/docker-android-ndk
+FROM alvisisme/android-ndk:r13b
 
-USER root
-WORKDIR /out
-VOLUME ["/out"]
-CMD ["/bin/sh", "/out/build.sh"]
+COPY build.sh /build.sh
+COPY patch /patch
+COPY Android.mk /Android.mk
+COPY Application.mk /Application.mk
+
+CMD ["/bin/bash", "/build.sh"]

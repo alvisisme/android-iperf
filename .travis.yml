@@ -1,22 +1,21 @@
-dist: xenial
-sudo: required
-services:
-  - docker
-env:
-  - DOCKER_COMPOSE_VERSION=1.23.1
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-  - docker-compose --version
-  - docker --version
-script:
-  - make
+language: shell
+os: linux
+arch: amd64
+dist: bionic
+
+services: docker
+
 branches:
   only:
-  - master 
+    - master
+
+before_install:
+  - docker-compose --version
+  - docker --version
+
+env:
+  - VERSION=v2
+  - VERSION=v3
+
+script:
+  - cd $VERSION && docker-compose up --build
