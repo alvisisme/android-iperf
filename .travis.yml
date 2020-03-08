@@ -18,4 +18,4 @@ env:
   - VERSION=v3
 
 script:
-  - cd $VERSION && docker-compose up --build
+  - cd $VERSION && docker-compose up --build --exit-code-from iperf${VERSION}-for-android
